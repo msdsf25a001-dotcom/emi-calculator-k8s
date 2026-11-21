@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan EMI Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+  <h1 class="mb-4 text-center">💰 Loan EMI Calculator</h1>
+
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card shadow-sm p-4">
+        <h5 class="mb-3">Enter Loan Details</h5>
+        <form id="emiForm">
+          <div class="mb-3">
+            <label class="form-label">Loan Amount (P)</label>
+            <input type="number" class="form-control" id="principal" min="1" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Annual Interest Rate (%)</label>
+            <input type="number" class="form-control" id="rate" step="0.01" min="0.01" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Tenure (Months)</label>
+            <input type="number" class="form-control" id="months" min="1" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Calculate EMI</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-7">
+      <div class="card shadow-sm p-4 mb-3" id="resultCard" style="display:none">
+        <h5>Calculation Result</h5>
+        <p class="mb-1">Monthly EMI: <strong id="emi" class="text-success"></strong></p>
+        <p class="mb-1">Total Payment: <strong id="totalPayment"></strong></p>
+        <p class="mb-1">Total Interest: <strong id="totalInterest"></strong></p>
+        <p class="text-muted small mt-2 mb-0">Served by pod: <code id="servedBy"></code></p>
+      </div>
+
+      <div class="card shadow-sm p-4">
+        <h5>Last 10 Calculations</h5>
+        <table class="table table-sm table-striped">
+          <thead>
+            <tr>
+              <th>Principal</th>
+              <th>Rate %</th>
+              <th>Months</th>
+              <th>EMI</th>
+              <th>Served By</th>
+            </tr>
+          </thead>
+          <tbody id="historyBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
